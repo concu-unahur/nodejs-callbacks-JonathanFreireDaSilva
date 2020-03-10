@@ -1,24 +1,27 @@
-function suma(numero_uno,numero_dos){
+const suma = (numero_uno,numero_dos,next)=>{
     setTimeout(function(){
        var resultado = numero_uno + numero_dos;
-       return resultado;
+       next(resultado)
     }, 1000);
 }
  
-var resultado = suma(2,5)
+//  var resultado = suma(2,5)//
  
-console.log(resultado);
+//   console.log(resultado);
  
  
  
-function sumaBien(){
+const sumaBien =(x,y,suma,next)=>{
+    suma(x,y,res=>{
+        next(res)
+    })
     // completar...
 }
   
 
-/* Descomentá esta parte para probar la función sumaBien
-sumaBien(2,5,function(resultado){
+ 
+sumaBien(2,5,suma, resultado=>{
     console.log(resultado);
 })
-*/
+ 
 

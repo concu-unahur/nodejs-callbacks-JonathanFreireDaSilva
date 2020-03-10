@@ -1,9 +1,11 @@
-function miMap(...) {
+const miMap=(array,func,next) => {
     var nuevoArray = [];
-    
+    array.forEach(element => {
+      nuevoArray.push  (  func(element) )
+    });
     // Completar: acá se llena el array nuevo
-
-    return nuevoArray;
+    next(nuevoArray)
+    
   }
   
 
@@ -15,5 +17,8 @@ function porDos(nro) {
 
 // Probando miMap
 arrayViejo = [1,2,3,4,5]
-var arrayNuevo = miMap(...)
-console.log(arrayNuevo) // arrayNuevo = [2,4,6,8,10] 
+
+ miMap(arrayViejo,porDos,resultado =>{
+  console.log(resultado) // arrayNuevo = [2,4,6,8,10] 
+
+ })
